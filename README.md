@@ -15,7 +15,7 @@ On top of that excelent example, I'm just adding the timestamp on every text lin
 
 ### 1- Hardware Wiring
 
-![Pinout](https://www.raspberrypi.org/documentation/usage/gpio/images/GPIO-Pinout-Diagram-2.png)
+![](https://www.raspberrypi.org/documentation/usage/gpio/images/GPIO-Pinout-Diagram-2.png)
 On the raspberry pi
 Use the following pins:
 
@@ -49,7 +49,7 @@ To enable the serial interface on the Raspberry pi side start the [raspi-config]
 sudo raspi-config
 ```
 
-![raspi-config](https://www.raspberrypi.org/documentation/configuration/images/raspi-config.png)
+![](https://www.raspberrypi.org/documentation/configuration/images/raspi-config.png)
 Go to **"3 Interface Options"**  and enable **"P6 Serial Port"**.
 
 ### 5- Python
