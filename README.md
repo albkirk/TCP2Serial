@@ -95,7 +95,7 @@ python3 tcp2serial.py -P 3000 /dev/ttyAMA0 115200
 ### 10- And use it
 On the PC open a telnet session on port 3000.
 Here's an example using [putty](https://www.putty.org/).
-
+[](https://github.com/albkirk/TCP2Serial/blob/main/images/putty.jpg)
 
 ### 11- Start it at boot
 It is suggested to start the tool at boot by using  crontab, by appending the last line below:
