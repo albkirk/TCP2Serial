@@ -30,6 +30,7 @@ On your device use the correspondent  **TX + RX + Ground**  pins.
 The other device could any device, such as ESP8266, ES32, nrf51822 ... or other MCU.
 
 In my example, I'm connecting to a prototype device  
+![tchpinout](https://raw.githubusercontent.com/albkirk/TCP2Serial/main/images/tchpinout.jpg)
 
 ### 2- OS
 
