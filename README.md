@@ -12,7 +12,7 @@ On top of that excelent example, I'm just adding the timestamp on every text lin
 
 ## Instalation on Raspberry Pi
 ### 1- Hardware Wiring
-[](https://www.raspberrypi.org/documentation/usage/gpio/images/GPIO-Pinout-Diagram-2.png)
+![](https://www.raspberrypi.org/documentation/usage/gpio/images/GPIO-Pinout-Diagram-2.png)
 On the raspberry pi
 Use the following pins:
 - 6 -> Ground
@@ -42,7 +42,7 @@ To enable the serial interface on the Raspberry pi side start the [raspi-config]
 ```
 sudo raspi-config
 ```
-[](https://www.raspberrypi.org/documentation/configuration/images/raspi-config.png)
+![](https://www.raspberrypi.org/documentation/configuration/images/raspi-config.png)
 Go to **"3 Interface Options"**  and enable **"P6 Serial Port"**.
 
 
@@ -76,9 +76,9 @@ in this case it shall use **/dev/ttyAMA0**
 
 
 ### 8- The TCP2Serial Code
-get a copy of both files to **/home/pi/** or other folder
--**tcp2serial.py**
--**t2saux.py**
+get a copy of both files from **/code** to yout raspberry pi **/home/pi/** folder (or subfolder)
+- **tcp2serial.py**
+- **t2saux.py**
 
 create the folder **/home/pi/logs/**
 ```
@@ -92,12 +92,7 @@ python3 tcp2serial.py -P 3000 /dev/ttyAMA0 115200
 ```
 
 
-### 10- And use it
-On the PC open a telnet session on port 3000.
-Here's an example using [putty](https://www.putty.org/).
-[](https://github.com/albkirk/TCP2Serial/blob/main/images/putty.jpg)
-
-### 11- Start it at boot
+### 10- Start it at boot
 It is suggested to start the tool at boot by using  crontab, by appending the last line below:
 ```
 $ crontab -e
@@ -113,4 +108,15 @@ $ crontab -e
 @reboot /usr/bin/python3 /home/pi/tcp2serial.py -P 3000 /dev/ttyAMA0 115200 2>&1 >> /home/pi/logs/debug.log
 
 ```
+
+## -.-
+
+ 
+## .-.
+
+## How to use the tool
+On the PC open a telnet session on port 3000.
+Here's an example using [putty](https://www.putty.org/).
+![](https://raw.githubusercontent.com/albkirk/TCP2Serial/main/images/putty.jpg)
+
 
