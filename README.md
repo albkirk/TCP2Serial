@@ -131,6 +131,25 @@ $ crontab -e
 
 ## How to use the tool
 
+### 1- Gat access to Serial Comunication from your PC
 On the PC open a telnet session on port 3000.
 Here's an example using [putty](https://www.putty.org/).
 ![putty](https://raw.githubusercontent.com/albkirk/TCP2Serial/main/images/putty.jpg)
+
+### 2- The LOG Files
+Log Files are stored on (configurable) folder directory **/home/pi/logs**. Files are automatically organized into subfolders Year and Month.
+```
+pi@raspberry:~ $ ls  -R  /home/pi/logs/
+/home/pi/logs/:
+2021  debug.log
+
+/home/pi/logs/2021:
+03
+
+/home/pi/logs/2021/03:
+2021-03-25_17H_serial.log  2021-03-26_11H_serial.log  2021-03-27_05H_serial.log  2021-03-27_23H_serial.log
+...
+```
+
+A new log files is created every new hour.
+Therefore, the raspberry pi **MUST** be able to sincronize the date/time using NTP. 
