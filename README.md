@@ -37,6 +37,11 @@ In my example, I'm connecting to a prototype device
 The tested and recomended OS is the [Raspberry Pi OS Lite](https://www.raspberrypi.org/software/operating-systems/).
 Burn the image on the SD-Card using the Balena Etcher and enable [SSH](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) (see chapter 3).
 
+If you are using the RPi3 or newer, you also need to disable BT by adding the following line at the end of file **/boot/config.txt**.
+```
+dtoverlay=pi3-disable-bt
+``` 
+
 ### 3- Network Connection
 
 Connect the raspberry pi to your home LAN network using an Ethernet cable.
@@ -52,6 +57,13 @@ sudo raspi-config
 
 ![raspi](https://raw.githubusercontent.com/albkirk/TCP2Serial/main/images/raspi-config.png)
 Go to **"3 Interface Options"**  and enable **"P6 Serial Port"**.
+
+Anwser "NO" to this
+![raspi](https://raw.githubusercontent.com/albkirk/TCP2Serial/main/images/serial_login.jpg)
+
+and "YES" to this
+![raspi](https://raw.githubusercontent.com/albkirk/TCP2Serial/main/images/hw_enabled.jpg)
+
 
 ### 5- Python
 
@@ -100,11 +112,18 @@ mkdir logs
 
 ### 9 - Run the tool
 
-to run the code type the following command
+to run the code enter the following command
 
 ```bash
 python3 tcp2serial.py -P 3000 /dev/ttyAMA0 115200
 ```
+
+to run the code on the RPi3 the command will be following
+
+```bash
+python3 tcp2serial.py -P 3000 /dev/serial0 115200
+```
+
 
 ### 10- Start it at boot
 
@@ -131,7 +150,7 @@ $ crontab -e
 
 ## How to use the tool
 
-### 1- Gat access to Serial Comunication from your PC
+### 1- Get access to Serial Comunication from your PC
 On the PC open a telnet session on port 3000.
 Here's an example using [putty](https://www.putty.org/).
 ![putty](https://raw.githubusercontent.com/albkirk/TCP2Serial/main/images/putty.jpg)
@@ -151,5 +170,6 @@ pi@raspberry:~ $ ls  -R  /home/pi/logs/
 ...
 ```
 
-A new log files is created every new hour.
-Therefore, the raspberry pi **MUST** be able to sincronize the date/time using NTP. 
+New log files is created every new hour.
+
+**IMPORTANT** The raspberry pi **MUST** be able to sincronize the date/time using NTP. 
