@@ -112,13 +112,13 @@ mkdir logs
 
 ### 9 - Run the tool
 
-to run the code enter the following command
+to run the code enter the following command:
 
 ```bash
 python3 tcp2serial.py -P 3000 /dev/ttyAMA0 115200
 ```
 
-to run the code on the RPi3 the command will be following
+to run the code on the RPi3, execute the following command:
 
 ```bash
 python3 tcp2serial.py -P 3000 /dev/serial0 115200
