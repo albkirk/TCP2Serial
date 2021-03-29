@@ -127,7 +127,7 @@ python3 tcp2serial.py -P 3000 /dev/serial0 115200
 
 ### 10- Start it at boot
 
-It is suggested to start the tool at boot by using  crontab, by appending the last line below:
+It is suggested to start the tool at boot by using crontab. You need to append the last line written below:
 
 ```bash
 $ crontab -e
@@ -140,7 +140,8 @@ $ crontab -e
 # For more information see the manual pages of crontab(5) and cron(8)
 #
 # m h  dom mon dow   command
-@reboot /usr/bin/python3 /home/pi/tcp2serial.py -P 3000 /dev/ttyAMA0 115200 2>&1 >> /home/pi/logs/debug.log
+#@reboot /usr/bin/python3 /home/pi/tcp2serial.py -P 3000 /dev/ttyAMA0 115200 2>&1 >> /home/pi/logs/debug.log  # RPi
+@reboot /usr/bin/python3 /home/pi/tcp2serial.py -P 3000 /dev/serial0 115200 2>&1 >> /home/pi/logs/debug.log  # RPi3
 
 ```
 
